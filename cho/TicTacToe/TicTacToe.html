@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td {
+        border: 1px solid black;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    const boxes = { row: 3, column: 3 };
+
+    const data = [];
+
+    let turn = true;
+
+    for (let i = 0; i < boxes.column; i++) {
+      data.push([]);
+      for (let j = 0; j < boxes.row; j++) {
+        data[i].push([]);
+      }
+    }
+
+    const table = document.createElement("table");
+
+    //table 생성
+    data.forEach((e) => {
+      const tr = document.createElement("tr");
+      table.append(tr);
+      //칸 생성
+      e.forEach((i) => {
+        const td = document.createElement("td");
+        td.id = `${data.indexOf(e)}-${e.indexOf(i)}`;
+        tr.append(td);
+
+        //hover
+        //td.addEventListener("mouseover", (e) => {
+        //  e.target.textContent = turn ? "o" : "x";
+        //});
+        //td.addEventListener("mouseout", (e) => {
+        //  e.target.textContent = "";
+        //});
+
+        td.addEventListener("click", (e) => {
+          //이미 클릭된 칸 클릭 방지
+          if (e.target.textContent !== "") return;
+
+          e.target.textContent = turn ? "o" : "x";
+
+          turn = !turn;
+
+          checkOver(e.target.id, e.target.innerHTML) &&
+            alert(`${!turn ? "o" : "x"} Win!`);
+
+          //Draw handler
+          const drawCheck = [];
+
+          document
+            .querySelectorAll("td")
+            .forEach((e) => drawCheck.push(e.innerHTML));
+
+          if (drawCheck.every((e) => e !== "")) return alert("Draw!");
+
+          const total = document.querySelectorAll("td");
+        });
+      });
+    });
+
+    const checkOver = (id, con) => {
+      const [row, col] = id.split("-");
+      //5mok logic
+      //document.querySelectorAll(`.${}`)
+
+      data[row][col] = con;
+
+      for (let i = 0; i < data.length; i++) {
+        if ((data[0][0] === con && data[1][1]) === con && data[2][2] === con)
+          return true;
+        if ((data[0][2] === con && data[1][1]) === con && data[2][0] === con)
+          return true;
+        if (data[i].every((e) => e === con)) return true;
+        if (data.every((e) => e[i] === con)) return true;
+      }
+    };
+
+    document.body.append(table);
+  </script>
+</html>
