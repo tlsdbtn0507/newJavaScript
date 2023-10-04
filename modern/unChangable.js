@@ -14,7 +14,7 @@ console.log(o1, o2, o1 === o2); // false인 이유는 두 변수 모두 똑같�
 //js엔진, 컴퓨터 구조 상 다른 메모리 주소(예: 각각 0x0130123 , 0x121312처럼)를 갖기 때문에 둘의 비교시 false가 된다
 
 const f1 = function () {};
-``;
+ㄴ;
 const f2 = function () {};
 
 console.log(f1, f2, f1 === f2);
