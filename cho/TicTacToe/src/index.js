@@ -41,8 +41,6 @@ data.forEach((e) => {
         .forEach((e) => drawCheck.push(e.innerHTML));
 
       if (drawCheck.every((e) => e !== "")) return alert("Draw!");
-
-      const total = document.querySelectorAll("td");
     });
   });
 });
