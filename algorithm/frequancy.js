@@ -14,20 +14,25 @@ function same(first, sec) {
 // console.log(same([1, 2, 3], [9, 4, 1]));
 // console.log(same([1, 2, 3], [1, 9]));
 // console.log(same([1, 2, 1], [4, 4, 1]));
-console.log(same([1, 2, 1, 2, 5], [25, 4, 4, 1, 1]));
+// console.log(same([1, 2, 1, 2, 5], [25, 4, 4, 1, 1]));
 // same([1, 2, 3], [1, 4, 9]);
 // same([1, 2, 3], [9, 4, 1]);
 // same([1, 2, 3], [1, 9]);
 // same([1, 2, 1], [4, 4, 1]);
 
-function vaildAnagram(arr1, arr2) {
+function validAnagram(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
 
   for (let i = 0; i < arr1.length; i++) {
-    let toChange = arr1.indexOf(arr2[i]);
+    if (arr2.length === 0) return true;
+    let toChange = arr2.indexOf(arr1[i]);
+    if (toChange === -1) return false;
 
-    if (toChange) console.log(toChange);
-    // if(toChange)
+    arr2 = arr2.replace(arr2[toChange], "").trim();
   }
+  return true;
 }
-vaildAnagram("abx", "abc");
+validAnagram("", ""); // true
+validAnagram("aaz", "zza"); // false
+validAnagram("anagram", "nagaram"); // true
+validAnagram("qwerty", "qeywrt"); // true
