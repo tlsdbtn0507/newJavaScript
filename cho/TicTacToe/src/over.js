@@ -6,6 +6,8 @@ const checkOver = (id, con) => {
   const [row, col] = id.split("-").map((e) => +e);
   data[row][col] = con;
 
+  // console.log(row, col);
+
   if (data.length !== 3) {
     //5mok logic
 
@@ -17,13 +19,16 @@ const checkOver = (id, con) => {
     };
 
     //가로줄돌 판명
-    for (let i = -5; i < 6; i++) {
-      console.log(data[row + i][col]);
-      holderToCheck.row.push(data[row + i][col]);
-      holderToCheck.col.push(data[row][col + i]);
-    }
-    console.log(holderToCheck.col.every((e) => e === con));
-    if (holderToCheck.col.every((e) => e === con)) return true;
+    // for (let i = -5; i < 6; i++) {
+    //   console.log(data[row + i][col]);
+    //   holderToCheck.col.push(data[row + i][col]);
+    //   holderToCheck.row.push(data[row][col + i]);
+    // }
+    // console.log(
+    //   holderToCheck.row.every((e) => e === con),
+    //   holderToCheck.row
+    // );
+    // if (holderToCheck.row.every((e) => e === con)) return true;
   } else {
     //ttt logic
     for (let i = 0; i < data.length; i++) {
