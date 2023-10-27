@@ -4,23 +4,21 @@ let turn = true;
 
 const click = (e) => {
   //이미 클릭된 칸 클릭 방지
-  //   if (e.target.textContent !== "") return;
-
-  console.log(e);
+    if (e.target.textContent !== "") return;
 
   e.target.textContent = turn ? "o" : "x";
 
   turn = !turn;
 
-  //   checkOver(e.target.id, e.target.innerHTML) &&
-  //     alert(`${!turn ? "o" : "x"} Win!`);
+    checkOver(e.target.id, e.target.innerHTML) &&
+      alert(`${!turn ? "o" : "x"} Win!`);
 
-  //   //Draw handler
-  //   const drawCheck = [];
+    //Draw handler
+    const drawCheck = [];
 
-  //   document.querySelectorAll("td").forEach((e) => drawCheck.push(e.innerHTML));
+    document.querySelectorAll("td").forEach((e) => drawCheck.push(e.innerHTML));
 
-  //   if (drawCheck.every((e) => e !== "")) return alert("Draw!");
+    if (drawCheck.every((e) => e !== "")) return alert("Draw!");
 };
 
 export { click };
