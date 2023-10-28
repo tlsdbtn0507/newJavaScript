@@ -12,7 +12,7 @@ const tableMaker = () => {
     //칸 생성
     e.forEach((i) => {
       const td = document.createElement("td");
-      td.classList = `${cells.indexOf(e)}-${e.indexOf(i)}`;
+      td.id = `${cells.indexOf(e)}-${e.indexOf(i)}`;
       tr.append(td);
     });
     tbody.append(tr);

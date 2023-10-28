@@ -2,7 +2,7 @@ const input = prompt(
   "which game do you want to play? \n 1.tictactoe \n 2.5mok"
 );
 
-const game = input === "1" || input === "tic" || input === "tictactoe" ? 3 : 10;
+const game = input === "1" || input === "tic" || input === "tictactoe" ? 3 : 20;
 
 const boxes = { row: game, column: game };
 
