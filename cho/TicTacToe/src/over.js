@@ -11,6 +11,7 @@ const checkOver = (id, con) => {
 
   if (datas.length !== 3) {
     //5mok logic
+    a
 
     const holderToCheck = {
       row: [],
