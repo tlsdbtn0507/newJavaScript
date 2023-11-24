@@ -1,0 +1,18 @@
+{
+  "type": "module",
+
+  "name": "node_study",
+  "version": "1.0.0",
+  "description": "studying node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "franc": "^6.1.0",
+    "lang": "^0.1.1",
+    "langs": "^2.0.0"
+  }
+}
