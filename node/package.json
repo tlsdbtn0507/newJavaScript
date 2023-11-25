@@ -1,6 +1,4 @@
 {
-  "type": "module",
-
   "name": "node_study",
   "version": "1.0.0",
   "description": "studying node",
@@ -11,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "franc": "^6.1.0",
     "lang": "^0.1.1",
     "langs": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
