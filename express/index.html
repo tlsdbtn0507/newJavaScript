@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form action="http://localhost:3000/products" method="post">
+    <input type="text" name="name" placeholder="name">
+    <input type="number" name="price" placeholder="price">
+    <!-- <input type="selec" name="category" placeholder="category"> -->
+    <select name="category" id="category">
+      <option value="fruit">fruit</option>
+      <option value="vegetable">vegetable</option>
+      <option value="dairy">dairy</option>
+    </select>
+    <button>send</button>
+  </form>
+
+  <button id="get">get</button>
+  <script>
+    const toEdit = async () =>{
+      const getToEdit = await fetch('http://localhost:3000/products/6576f70ee74a254f685310b2');
+      const data = await getToEdit.json();
+      console.log(data)
+    }
+
+    toEdit()
+
+    const btn = document.getElementById('get').addEventListener('click',toEdit)
+  </script>
+</body>
+</html>
