@@ -12,26 +12,19 @@ class SinglyLinkedList{
         this.length = 0;
     }
   push(val) {
+    
     const n = new Node(val)
 
-    if (this.length) {
-      this.tail = n;
-      n.next = n
-    } else {
-      this.head = n
-    }  
-
-  
-      this.length += 1;
-    }
+    this.head = !this.length ? n : this.head;
+    this.tail = val;
+    this.length += 1;
+    return 
+  }
 }
 
 const sinLinList = new SinglyLinkedList();
 
-// for (let i = 1; i < 6; i++) {
-//   sinLinList.push(i)
-//   console.log(sinLinList)
-// }
-sinLinList.push(1)
-sinLinList.push(2)
-console.log(sinLinList)
+for (let i = 1; i < 6; i++) {
+  sinLinList.push(i)
+  console.log(sinLinList , sinLinList.head.next)
+}
