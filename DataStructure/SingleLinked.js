@@ -15,16 +15,43 @@ class SinglyLinkedList{
     
     const n = new Node(val)
 
-    this.head = !this.length ? n : this.head;
-    this.tail = val;
+    if (!this.length) {
+      this.head = n;
+      this.tail = this.head;
+    } else {
+      this.tail.next = n;
+      this.tail = n
+    }
     this.length += 1;
-    return 
+    return this
   }
+
+  pop() {
+    // console.log(1)
+    
+    if (!this.length) return
+    
+    this.tail = null;
+
+    // console.log(this.head)
+    if (this.head.next) {
+      console.log(this.head.next.next)
+      // this.head.pop()
+    }
+
+    return this
+  }
+
 }
 
 const sinLinList = new SinglyLinkedList();
 
 for (let i = 1; i < 6; i++) {
   sinLinList.push(i)
-  console.log(sinLinList , sinLinList.head.next)
+  // console.log(sinLinList)
 }
+// sinLinList.push(1)
+sinLinList.pop();
+// console.log(sinLinList)
+// console.log('pop', sinLinList.pop())
+
