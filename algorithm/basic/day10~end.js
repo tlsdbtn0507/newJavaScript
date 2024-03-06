@@ -69,3 +69,16 @@ function solution11_switch(n, slicer, num_list) {
     return result;
 }
 
+//이게 9점..?
+function solution12_slicingArr(arr, query) {
+    let ans = arr
+    for(let i = 0 ; i < query.length; i++){
+        let ind = query[i]+1
+        let min = query[i]
+        
+        if(i%2 === 0) ans.splice(ind)
+        if(i%2 !== 0) ans.splice(0,min)
+    }
+
+    return ans;
+}
