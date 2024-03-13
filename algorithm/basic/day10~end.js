@@ -82,3 +82,26 @@ function solution12_slicingArr(arr, query) {
 
     return ans;
 }
+
+//이게 15점..?
+function solution13_left_right(str_list) {
+    var answer = [];
+    
+    const emptyCond = !str_list.includes('l') && !str_list.includes('r') 
+          
+    
+    for(let i = 0; i < str_list.length; i++){
+        if(str_list[i] === 'l'){
+            answer = str_list.slice(0,i);
+            break
+        }
+        if(str_list[i] === 'r'){
+            answer = str_list.slice(i+1);
+            break
+        }
+    }
+    
+    
+    return emptyCond ? [] : answer;
+
+}
