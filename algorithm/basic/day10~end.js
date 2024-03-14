@@ -105,3 +105,11 @@ function solution13_left_right(str_list) {
     return emptyCond ? [] : answer;
 
 }
+//14
+function solution14_1(num_list) {
+    
+    const o = num_list.filter((_,i)=> i%2 !== 0).reduce((a,b)=>a+b)
+    const a = num_list.filter((_,i)=> i%2 === 0).reduce((a,b)=>a+b)
+    
+    return o > a ? o : a;
+}
