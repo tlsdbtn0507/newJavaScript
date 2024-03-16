@@ -122,3 +122,13 @@ function solution14_5(arr, queries) {
 
     return arr;
 }
+
+//15
+function solution15_1(arr) {
+    var answer = [];
+    return arr.map(e=>{
+        if(e >= 50 && e%2 === 0) return e/2
+        if(e < 50 && e%2 !== 0) return e*2
+        else return e
+    });
+}
