@@ -132,3 +132,53 @@ function solution15_1(arr) {
         else return e
     });
 }
+
+//15_2~5
+function solution15_2(arr) {
+    let answer = 0;
+    
+    const recuir = (a) => {
+        const ret = a.map(e=>{
+            if(e >= 50 && e%2 === 0) return e/2
+            if(e < 50 && e%2 !== 0) return e*2+1
+            else return e
+        })
+        if(JSON.stringify(a) === JSON.stringify(ret)) return answer
+        else {
+            answer++;
+            return recuir(ret)
+        }
+        
+    }
+    
+    return recuir(arr);
+}
+
+function solution15_3(num_list) {
+    
+    const oneMaker = ([n,a]) => {
+        if(n === 1) return a;
+        else{
+            if(n%2 === 0) return oneMaker([n/2,a+=1]);
+            else return oneMaker([(n-1)/2,a+=1]);    
+        }    
+    }
+    
+    return num_list.map(e=>oneMaker([e,0])).reduce((a,b)=>a+b);
+}
+
+function solution15_4(num_list) {
+
+    return num_list.length >= 11 ? 
+        num_list.reduce((a,b)=>a+b) : 
+        num_list.reduce((a,b)=>a*b);
+}
+
+function solution15_5(myString, pat) {
+    var answer = 0;
+    
+    const ms = myString.toLowerCase();
+    const p = pat.toLowerCase();
+    
+    return myString.length >= pat.length && ms.includes(p) ? 1 : answer;
+}
