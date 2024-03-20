@@ -69,3 +69,66 @@ function solution18_5(rny_string) {
     var answer = '';
     return rny_string.replaceAll('m','rn');
 }
+
+//19_1
+function solution19_1(myStr) {
+
+    const answer = [...myStr]
+        .map(e=>e !== 'a' && e !== 'b' && e !=='c' ? e : ' ')
+        .join('')
+        .split(' ')
+        .filter(e=>e!=='')
+
+    return answer.length === 0 ? ['EMPTY'] : answer;
+}
+
+//19_2
+function solution19_2(arr) {
+    const answer = [];
+    
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i]; j++){
+            answer.push(arr[i])
+        }
+    }
+    
+    return answer;
+}
+
+//19_3
+function solution19_3(arr, flag) {
+    var answer = [];
+    
+    for(let i = 0; i < arr.length; i++){
+        if(flag[i]) for(let j = 0; j < arr[i]*2; j++) answer.push(arr[i])
+        else for(let j = 0; j < arr[i]; j++) answer.pop()
+    }
+    
+    return answer;
+}
+
+//19_4
+function solution19_4(arr) {
+    var answer = [];
+    for(let  i = 0; i < arr.length; i++){
+      if (answer.length === 0)
+        answer.push(arr[i]);
+        else{
+        if (answer.at(-1) === arr[i])
+          answer.pop()
+        else answer.push(arr[i])
+        }
+    }
+    return answer.length === 0 ? [-1] : answer;
+}
+
+//19_5
+function solution19_5(arr, k) {
+    const ans  = Array.from(new Set(arr)).slice(0,k)
+    
+    if(ans.length < k) {
+        for (let i = ans.length; i < k ; i++) ans.push(-1)
+    }
+
+    return ans;
+}
