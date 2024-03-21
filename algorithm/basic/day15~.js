@@ -154,7 +154,7 @@ function solution20_2(arr) {
 }
 
 //20_3
-function solution(strArr) {
+function solution20_3(strArr) {
 
     const strList = Array.from(new Set(strArr.map(e=>e.length)))
 
@@ -165,4 +165,30 @@ function solution(strArr) {
         }
         return a.length
     }).sort().pop();
+}
+
+//20_4
+function solution20_4(arr, n) {
+    var answer = [];
+    
+    if(arr.length%2 === 0) return arr.map((e,i)=>i%2 === 0 ? e : e+n)
+    
+    return arr.map((e,i)=> i%2 === 0 ? e+n : e);
+}
+
+//20_5
+function solution20_5(num_list) {
+    const answer = [];
+    
+    for(let i = 0; i < num_list.length; i++){
+        for(let j = 0; j < num_list.length; j++){
+            if(num_list[j] > num_list[j+1]){
+                let temp = num_list[j];
+                num_list[j] = num_list[j+1];
+                num_list[j+1] = temp
+            }
+        }
+    }
+    
+    return num_list.slice(0,5);
 }
