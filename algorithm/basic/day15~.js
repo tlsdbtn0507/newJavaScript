@@ -132,3 +132,23 @@ function solution19_5(arr, k) {
 
     return ans;
 }
+
+//20_1
+function solution20_1(arr1, arr2) {
+    if(arr1.length !== arr2.length)
+        return arr1.length > arr2.length ? 1: -1;
+    if(arr1.reduce((a,b)=>a+b) === arr2.reduce((a,b)=> a+b)) 
+        return 0;
+    return arr1.reduce((a,b)=>a+b) > arr2.reduce((a,b)=> a+b) ? 1 : -1;
+}
+
+//20_2
+function solution20_2(arr) {
+    
+    const total = 2**Math.ceil(Math.log2(arr.length));
+    
+    if(total !== arr.length) 
+        for(let i = arr.length; i < total; i++) arr.push(0)
+    
+    return arr;
+}
