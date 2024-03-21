@@ -152,3 +152,17 @@ function solution20_2(arr) {
     
     return arr;
 }
+
+//20_3
+function solution(strArr) {
+
+    const strList = Array.from(new Set(strArr.map(e=>e.length)))
+
+    return strList.map(e=>{
+        let a = [];
+        for(let i = 0; i <strArr.length; i++){
+            if(strArr[i].length === e) a.push(strArr[i])
+        }
+        return a.length
+    }).sort().pop();
+}
