@@ -192,3 +192,26 @@ function solution20_5(num_list) {
     
     return num_list.slice(0,5);
 }
+
+//21_1
+function solution21_1(num_list) {
+    return num_list.map(e=> +e).sort((a,b)=>a-b).slice(5);
+}
+
+//21_2
+function solution21_2(rank, attendance) {
+    
+    const [a, b, c] = rank.
+        map((e, i) => [e, attendance[i], i]).
+        sort((a,b)=>a[0]-b[0]).
+        filter(e=>e[1]).
+        map(e=>e[2]).slice(0,3)
+
+    return a*10000+ b*100 +c;
+}
+
+//21_4
+function solution21_4(num_str) {
+    return [...num_str].reduce((a,b)=>+a + +b);
+}
+
