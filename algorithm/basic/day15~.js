@@ -215,3 +215,29 @@ function solution21_4(num_str) {
     return [...num_str].reduce((a,b)=>+a + +b);
 }
 
+//22_1
+function solution22_1(n_str) {
+    var answer = '';
+    
+    for(let i = 0; i < n_str.length; i++){
+        if(n_str[i] !== '0') break
+        answer = answer + n_str[i]
+    }
+    
+    return n_str.replace(answer,'');
+}
+
+//22_2
+function solution22_2(a, b) {
+    return `${BigInt(a) + BigInt(b)}`;
+}
+
+//22_4
+function solution22_4(arr, delete_list) {
+    return arr.filter(e=>!delete_list.includes(e));
+}
+
+//22_5
+function solution22_5(my_string, target) {
+    return +my_string.includes(target);
+}
