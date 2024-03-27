@@ -241,3 +241,25 @@ function solution22_4(arr, delete_list) {
 function solution22_5(my_string, target) {
     return +my_string.includes(target);
 }
+
+//23_1
+function solution23_1(str1, str2) {
+    return +str2.includes(str1);
+}
+
+//23_2
+function solution23_2(str_list, ex) {
+    return str_list.filter(e=>!e.includes(ex)).join('');
+}
+
+//23_4
+function solution23_4(a, b) {
+    if(a%2 === 1 && b%2 === 1) return a**2 + b**2
+    if(a%2 === 1 || b%2 === 1) return 2*(a+b)
+    if(a%2 === 0 && b%2 === 0) return Math.abs(a-b)
+}
+
+//23_5
+function solution23_5(date1, date2) {
+    return +(new Date(date1) < new Date(date2))
+}
