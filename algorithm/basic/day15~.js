@@ -263,3 +263,55 @@ function solution23_4(a, b) {
 function solution23_5(date1, date2) {
     return +(new Date(date1) < new Date(date2))
 }
+
+//24_1
+function solution24_1(order) {
+    
+    const ame = 'americano';
+    const latte = 'cafelatte';
+    
+    return order.
+        map(e => {
+        if(e.includes(ame)) return 4500;
+        if(e.includes(latte)) return 5000;
+            else return 4500
+        })
+        .reduce((a, b) => a + b);
+}
+
+//24_3
+function solution24_3(picture, k) {
+    var answer = [];
+
+    picture.forEach(e=>{
+        for(let i = 0; i < k; i++)
+            answer.push([...e].map(c=>c.repeat(k)).join(''))
+    })
+    return answer;
+}
+
+//24_3
+function solution24_3(arr, k) {
+    return arr.map(e=> k%2 ? e*k : e+k )
+}
+
+//24_4
+function solution24_4(myString) {
+    const l = 'l'.charCodeAt(0) - 96
+    return [...myString].map(e => e.charCodeAt(0) - 96 < l ? 'l' : e).join('');
+}
+
+//24_5
+function solution24_5(n) {
+    var answer = []
+    
+    for(let i = 0; i< n; i++){
+        let arr = []
+        for(let j = 0; j < n; j++){
+            arr.push(i === j ? 1 :0)
+        }
+        answer.push(arr)
+    }
+    
+    return answer;
+}
