@@ -315,3 +315,50 @@ function solution24_5(n) {
     
     return answer;
 }
+
+//25_2
+function solution25_2(arr) {
+    
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length; j++){
+            if(arr[i][j] !== arr[j][i]) return 0 
+        }
+    }
+    return 1;
+}
+
+//24_3
+function solution24_3(arr) {
+    
+    const garo = arr.length;
+    const [sero] = Array.from(new Set(arr.map(e => e.length)))
+    
+    if(garo > sero)
+        return arr.map(e=>{
+            let a = e
+            for(let i = 0; i < garo - sero; i++) 
+                a.push(0)
+            return a
+        })
+    
+    if(garo < sero){
+        for(let i = 0; i < sero-garo; i++){
+            arr.push(new Array(sero).fill(0))
+        }
+        return arr
+    }
+        
+    return arr;
+}
+
+//24_4
+function solution24_4(board, k) {
+    let answer = []
+
+    for(let i = 0; i < board.length; i++){
+        for(let j = 0; j < board[i].length; j++){
+            if(i+j <=k ) answer.push(board[i][j])
+        }
+    }
+    return answer.reduce((a,b)=>a+b);
+}
