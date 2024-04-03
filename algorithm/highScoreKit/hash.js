@@ -27,3 +27,20 @@ function connieClothes(clothes) {
     const count = arr.map(e => e[1].length + 1).reduce((a, b) => a * b) - 1;
     return count;
 }
+
+function (genres, plays) {
+    var hash = [];
+    
+    for(let i = 0; i < genres.length; i++){
+        if(!hash.flat().includes(genres[i]))
+           hash.push([genres[i],plays[i]])
+        else{
+            const ind = hash.findIndex(e=>e[0] === genres[i])
+            hash[ind][1] += plays[i]
+        }
+    }
+    
+    console.log(hash.sort((a,b)=> a[1] < b[1] ? 1 : -1))
+    
+    return hash;
+}
