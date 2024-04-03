@@ -28,19 +28,32 @@ function connieClothes(clothes) {
     return count;
 }
 
-function (genres, plays) {
+function bestAlbum(genres, plays) {
     var hash = [];
     
     for(let i = 0; i < genres.length; i++){
         if(!hash.flat().includes(genres[i]))
-           hash.push([genres[i],plays[i]])
+            hash.push([genres[i], [plays[i]]]);
         else{
-            const ind = hash.findIndex(e=>e[0] === genres[i])
-            hash[ind][1] += plays[i]
+            const ind = hash.findIndex(e => e[0] === genres[i]);
+            hash[ind][1].push(plays[i]);
         }
     }
-    
-    console.log(hash.sort((a,b)=> a[1] < b[1] ? 1 : -1))
-    
-    return hash;
+
+    const order = hash.sort((a, b) =>
+        a[1].reduce((a, b) => a + b) <
+        b[1].reduce((a, b) => a + b) ? 1 : -1)
+        .map(e => e[1].sort((a, b) => b - a).slice(0, 2))
+        .flat();  
+
+    const answer = [];
+    let p = plays.slice();
+    for(let i = 0; i < order.length; i++){
+        let ind = p.findIndex(e => e === order[i]);
+        if(ind>=0){
+            answer.push(ind);
+            p.splice(ind, 1, 'x');
+        }
+    }
+    return answer
 }
