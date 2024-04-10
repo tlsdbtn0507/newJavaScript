@@ -16,7 +16,6 @@ function programming(progresses, speeds) {
         if(days[0] < days[i]) {
             days.shift()
             answer.push(c);
-            console.log(c)
         }
         if(days[0] > days[i]) {
             c++
