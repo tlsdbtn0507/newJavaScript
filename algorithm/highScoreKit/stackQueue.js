@@ -9,19 +9,18 @@ function programming(progresses, speeds) {
         }
         days.push(d)
     }
-    let c = 1
-    for(let i = 1; i <= days.length; i++) {
-        
-        console.log(days,c,i)
-        if(days[0] < days[i]) {
-            days.shift()
-            answer.push(c);
+  let maxDays = days[0];     
+    let count = 0;
+    for (let i = 0; i < days.length; i++) {
+        if (days[i] <= maxDays) {
+            count++;
+        } else {
+            answer.push(count);
+            maxDays = days[i];
+            count = 1;
         }
-        if(days[0] > days[i]) {
-            c++
-        }
-        
     }
+    answer.push(count); 
     
     return answer;
 }
