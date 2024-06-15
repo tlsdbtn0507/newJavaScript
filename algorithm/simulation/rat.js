@@ -13,26 +13,29 @@ const readline = require('readline');
 			continue
 		};
 		
-		// arr.push(l.sort((a,b)=>a-b,0))
 		arr.push(l)
 		rl.close();
 	}
 	
-	
-	
-	// let mostVals = [];
 	const [clean,dirty] = arr
-	// console.log(clean,dirty)
 
 	const getMostVal = (arr)=>{
-		const result = []
-		for(let i = 0; i< arr.length; i++){
-			result.push([arr.filter(e=> (arr[i] >= e-2 && arr[i] <= e+2 ) && e).length,i])
+		const result = [];
+		
+		const arr2 = arr.sort((a,b)=>a-b,0)
+		const [start] = arr.sort((a,b)=>a-b,0);
+		const [end] = arr.sort((a,b)=>b-a,0);
+		
+		for(let i = start; i<= end; i++){
+			result.push([arr.filter(e=> (i >= e-2 && i <= e+2 ) && e).length,i]);
 		}
-		return result.sort((a,b)=>a[0]-b[0],0)
-		// return result
+		const [toRet] = result.sort((a,b)=>b[0]-a[0],0);
+		return toRet[1]
 	}
-	console.log(getMostVal(clean))
+	const cleanRes = getMostVal(clean);
+	const dirtyRes = getMostVal(dirty);
+	console.log(cleanRes,dirtyRes)
+	console.log(cleanRes > dirtyRes ? 'good' : 'bad')
 	
 	process.exit();
 })();
