@@ -15,15 +15,12 @@ const readline = require('readline');
         const [i,s] = line.split(' ');
         range.push([i,s])
 	}
-    range.shift()
-
-    range.forEach(e=>{
-        const a = average.flat()
+  range.forEach((e,i)=>{
+      if(i) {
         const [start,end] = e;
-        const arr = a.slice(start,+end+1)
-        console.log((arr.reduce((a,b)=>a+b,0)/arr.length).toFixed(2))
-    })
-
-	
-	process.exit();
+        const arr = average[1].slice(+start-1,+end)
+        console.log((arr.reduce((a,b)=>a+b,0)/arr.length).toFixed(2))    
+      }
+  })
+process.exit();
 })();
