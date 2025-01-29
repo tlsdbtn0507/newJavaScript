@@ -22,3 +22,13 @@ function filter(arr: number[], fn: Fn): number[] {
 
     return result
 };
+
+type FnReduce = (accum: number, curr: number) => number
+
+function reduce(nums: number[], fn: FnReduce, init: number): number {
+    let cur = init;
+    for(let i = 0; i < nums.length; i++){
+        cur = fn(cur,nums[i])
+    }
+    return cur
+};
