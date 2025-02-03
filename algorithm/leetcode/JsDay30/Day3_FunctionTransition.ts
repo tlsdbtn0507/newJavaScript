@@ -15,3 +15,14 @@ type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string
 function argumentsLength(...args: JSONValue[]): number {
     return args.length
 };
+
+type OnceFn = (...args: JSONValue[]) => JSONValue | undefined
+
+function once(fn: Function): OnceFn {
+    let i = 0
+    return function (...args) {
+        if(i > 0) return undefined
+        i++
+        return fn(...args);
+    };
+}
